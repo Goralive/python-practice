@@ -19,6 +19,13 @@ def filter_messages(messages):
 
 
 filter_messages(
-    ['well dang it', 'dang the whole dang thing', 'kill that knight, dang it', 'get him!', 'donkey kong',
-     'oh come on, get them', 'run away from the dang baddies']
+    [
+        "well dang it",
+        "dang the whole dang thing",
+        "kill that knight, dang it",
+        "get him!",
+        "donkey kong",
+        "oh come on, get them",
+        "run away from the dang baddies",
+    ]
 )

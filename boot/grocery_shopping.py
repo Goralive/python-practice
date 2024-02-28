@@ -42,22 +42,6 @@ calculate_total(
     ],
 )
 calculate_total(
-    ["milk", "eggs", "cheese", "apples", "bananas", "lettuce", "cereal"],
-    [
-        "milk",
-        "oatmeal",
-        "eggs",
-        "cheese",
-        "apples",
-        "bananas",
-        "carrots",
-        "lettuce",
-        "potatoes",
-        "cereal",
-        "chicken",
-    ],
-)
-calculate_total(
     [
         "milk",
         "eggs",

@@ -31,7 +31,7 @@ class Wizard(Hero):
         self.__mana = mana
 
     def cast(self, target):
-        print(f'Mana {self.__mana}')
+        print(f"Mana {self.__mana}")
         if self.__mana < 25:
             raise Exception("not enough mana")
         self.__mana -= 25

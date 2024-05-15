@@ -16,7 +16,7 @@ customers = [
 ]
 
 
-    # return customer_list["customer"]["age"] >= 18
+# return customer_list["customer"]["age"] >= 18
 
 
 is_adult(customers)

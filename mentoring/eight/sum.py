@@ -24,20 +24,14 @@ def __get_winner():
         lambda x, y: x
         if x["customer"]["beer_bottles"] > y["customer"]["beer_bottles"]
         else y,
-        filter(
-            is_adult, customers
-        ),
+        filter(is_adult, customers),
     )
 
 
 def __summarize_amount_of_bottles():
-    adults = filter(
-        is_adult, customers
-    ),
+    adults = (filter(is_adult, customers),)
     sum_list = [value for key, value in adults if key == "beer_bottles"]
-    return reduce(
-        lambda x, y: x + y, sum_list
-    )
+    return reduce(lambda x, y: x + y, sum_list)
 
 
 def report():

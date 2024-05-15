@@ -8,7 +8,7 @@ class AdultAgeException(Exception):
     def __init__(self, message="Age must be more then", age=18):
         self.message = message
         self.age = age
-        super().__init__(f'{self.message} {self.age}')
+        super().__init__(f"{self.message} {self.age}")
 
 
 def is_adult(customer_list):
@@ -21,6 +21,6 @@ def is_adult(customer_list):
         except Exception:
             print("Something go wrong")
         else:
-            print('Nice I can take a beer!!')
+            print("Nice I can take a beer!!")
         finally:
-            print('Meh, I will always RUN')
+            print("Meh, I will always RUN")

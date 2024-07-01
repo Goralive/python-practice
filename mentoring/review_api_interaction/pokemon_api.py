@@ -10,7 +10,6 @@ def get_pokemon_data(pokemon_name):
 
 
 def parse_pokemon_details(pokemon_data):
-
     pass
 
 

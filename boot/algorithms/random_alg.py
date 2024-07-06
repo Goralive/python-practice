@@ -42,19 +42,6 @@ def median_followers(nums):
     return sorted[middle]
 
 
-def median_followers(nums):
-    print(nums)
-    if nums is None:
-        return None
-    if nums <= 0:
-        return None
-    sorted = nums.sort()
-    middle = len(nums) / 2
-    if middle % 2 != 0:
-        middle -= middle - 0.5
-    return sorted[middle]
-
-
 def get_follower_prediction(follower_count: int, influencer_type: str, num_months: int):
     multiple = 2
     if influencer_type == "fitness":
@@ -154,12 +141,112 @@ def binary_search(target, arr):
 
 def count_names(list_of_lists, target_name):
     count = 0
-    for list in list_of_lists:
-        for name in list:
+    for items_list in list_of_lists:
+        for name in items_list:
             if target_name == name:
                 count += 1
     return count
 
 
 def remove_duplicates(nums):
-    pass
+    unique_list = []
+    for num in nums:
+        if num not in unique_list:
+            unique_list.append(num)
+    return unique_list
+
+
+class Influencer:
+    def __init__(self, num_selfies, num_bio_links):
+        self.num_selfies = num_selfies
+        self.num_bio_links = num_bio_links
+
+    def __repr__(self):
+        return f"({self.num_selfies}, {self.num_bio_links})"
+
+
+# dont touch above this line
+
+
+def vanity(influencer):
+    return influencer.num_bio_links * 5 + influencer.num_selfies
+
+
+def vanity_sort(influencers):
+    sorted(influencers, key=vanity)
+
+
+def bubble_sort(nums):
+    swapping = True
+    end = len(nums)
+
+    while swapping:
+        swapping = False
+        for i in range(1, end):
+            if nums[i - 1] > nums[i]:
+                nums[i - 1], nums[i] = nums[i], nums[i - 1]
+                swapping = True
+        end -= 1
+    return nums
+
+
+def merge_sort(nums):
+    arr_length = len(nums)
+    if arr_length < 2:
+        return nums
+    middle = arr_length // 2
+    first_half = nums[:middle]
+    second_half = nums[middle:]
+
+    left_side = merge_sort(first_half)
+    right_side = merge_sort(second_half)
+    return merge(left_side, right_side)
+
+
+def merge(first, second):
+    finished_list = []
+    i = 0
+    j = 0
+    while i < len(first) and j < len(second):
+        if first[i] <= second[j]:
+            finished_list.append(first[i])
+            i += 1
+        else:
+            finished_list.append(second[j])
+            j += 1
+    while i < len(first):
+        finished_list.append(first[i])
+        i += 1
+    while j < len(second):
+        finished_list.append(second[j])
+        j += 1
+    return finished_list
+
+
+def insertion_sort(nums):
+    if len(nums) < 1:
+        return nums
+    for i in range(len(nums)):
+        j = i
+        while 0 < j and nums[j] < nums[j - 1]:
+            nums[j], nums[j - 1] = nums[j - 1], nums[j]
+            j -= 1
+    return nums
+
+
+def quick_sort(nums, low, high):
+    if low < high:
+        p = partition(nums, low, high)
+        quick_sort(nums, low, p - 1)
+        quick_sort(nums, p + 1, high)
+
+
+def partition(nums, low, high):
+    pivot = nums[high]
+    i = low
+    for j in range(low, high):
+        if nums[j] < pivot:
+            nums[i], nums[j] = nums[j], nums[i]
+            i += 1
+    nums[i], nums[high] = nums[high], nums[i]
+    return i

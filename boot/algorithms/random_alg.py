@@ -260,3 +260,29 @@ def selection_sort(nums):
                 smallest_idx = j
         nums[i], nums[smallest_idx] = nums[smallest_idx], nums[i]
     return nums
+
+
+def fib(n):
+    if n <= 1:
+        return n
+    current = 0
+    parent = 1
+    grandparent = 0
+    for _ in range(0, n - 1):
+        current = parent + grandparent
+        grandparent = parent
+        parent = current
+    return current
+
+
+def power_set(input_set):
+    if not input_set:
+        return [[]]
+    power_list = []
+    first = input_set[0]
+    remaining = input_set[1:]
+    remaining_subsets = power_set(remaining)
+    for elem in remaining_subsets:
+        power_list.append([first] + elem)
+        power_list.append(elem)
+    return power_list

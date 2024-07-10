@@ -286,3 +286,32 @@ def power_set(input_set):
         power_list.append([first] + elem)
         power_list.append(elem)
     return power_list
+
+
+def exponential_growth(n, factor, days):
+    growth = [n]
+    for i in range(days):
+        growth.append(growth[-1] * factor)
+    return growth
+
+
+def num_countries_in_days(max_days, factor):
+    time_left = max_days
+    count = 0
+    time_in_country = 1
+
+    while time_left >= time_in_country:
+        time_left -= time_in_country
+        time_in_country *= factor
+        count += 1
+    return count
+
+
+def regenerate(current_health, max_health, enemy_distance):
+    while current_health != max_health:
+        if enemy_distance <= 3:
+            break
+        print(f"Enemy distance is {enemy_distance}")
+        current_health += 1
+        enemy_distance -= 2
+    return current_health

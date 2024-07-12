@@ -260,3 +260,108 @@ def selection_sort(nums):
                 smallest_idx = j
         nums[i], nums[smallest_idx] = nums[smallest_idx], nums[i]
     return nums
+
+
+def fib(n):
+    if n <= 1:
+        return n
+    current = 0
+    parent = 1
+    grandparent = 0
+    for _ in range(0, n - 1):
+        current = parent + grandparent
+        grandparent = parent
+        parent = current
+    return current
+
+
+def power_set(input_set):
+    if not input_set:
+        return [[]]
+    power_list = []
+    first = input_set[0]
+    remaining = input_set[1:]
+    remaining_subsets = power_set(remaining)
+    for elem in remaining_subsets:
+        power_list.append([first] + elem)
+        power_list.append(elem)
+    return power_list
+
+
+def exponential_growth(n, factor, days):
+    growth = [n]
+    for _ in range(days):
+        growth.append(growth[-1] * factor)
+    return growth
+
+
+def num_countries_in_days(max_days, factor):
+    time_left = max_days
+    count = 0
+    time_in_country = 1
+
+    while time_left >= time_in_country:
+        time_left -= time_in_country
+        time_in_country *= factor
+        count += 1
+    return count
+
+
+def regenerate(current_health, max_health, enemy_distance):
+    while current_health != max_health:
+        if enemy_distance <= 3:
+            break
+        print(f"Enemy distance is {enemy_distance}")
+        current_health += 1
+        enemy_distance -= 2
+    return current_health
+
+
+def meditate(mana, max_mana, energy, energy_potions):
+    while mana != max_mana:
+
+        if energy_potions > 0 and energy == 0:
+            energy_potions -= 1
+            energy += 50
+        if energy_potions == 0 and energy == 0:
+            break
+        mana += 3
+        energy -= 1
+        if mana > max_mana:
+            mana = max_mana
+    return mana, energy, energy_potions
+
+
+def verify_tsp(paths, dist, actual_path):
+    distance = 0
+    for i in range(1, len(actual_path)):
+        distance += paths[i - 1][i]
+    if distance < dist:
+        return True
+    return False
+
+
+def get_num_guesses(length):
+    total_guess = 0
+    if length < 0:
+        return 0
+    for i in range(1, length + 1):
+        total_guess += 26**i
+
+    return total_guess
+
+
+def prime_factors(n):
+    division_list = []
+    while n % 2 == 0:
+        division_list.append(2)
+        n = n // 2
+
+    for i in range(3, int(math.sqrt(n)) + 1, 2):
+        while n % i == 0:
+            division_list.append(i)
+            n = n // i
+    if n > 2:
+        division_list.append(n)
+
+    return division_list

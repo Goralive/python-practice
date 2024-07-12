@@ -349,3 +349,19 @@ def get_num_guesses(length):
         total_guess += 26**i
 
     return total_guess
+
+
+def prime_factors(n):
+    division_list = []
+    while n % 2 == 0:
+        division_list.append(2)
+        n = n // 2
+
+    for i in range(3, int(math.sqrt(n)) + 1, 2):
+        while n % i == 0:
+            division_list.append(i)
+            n = n // i
+    if n > 2:
+        division_list.append(n)
+
+    return division_list

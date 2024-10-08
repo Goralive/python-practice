@@ -2,7 +2,8 @@ from mazesolver import Line, Point
 
 
 class Cell:
-    def __init__(self, win):
+    def __init__(self, win=None):
+
         self.has_left_wall = True
         self.has_right_wall = True
         self.has_top_wall = True
@@ -40,9 +41,10 @@ class Cell:
         x_center2 = half_length2 + to_cell._x1
         y_center2 = half_length2 + to_cell._y1
 
-        fill_color="red"
+        fill_color = "red"
         if undo:
-            fill_color='gray'
+            fill_color = "gray"
+
 
         line = Line(Point(x_center, y_center), Point(x_center2, y_center2))
         self._win.draw_line(line, fill_color)
